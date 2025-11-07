@@ -1,0 +1,105 @@
+.hero {
+  position: relative;
+  padding: 120px $container-padding;
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  background: radial-gradient(ellipse at center top, rgba(0, 255, 133, 0.1) 0%, transparent 50%);
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(180deg, transparent 0%, rgba(0, 255, 133, 0.05) 100%);
+    pointer-events: none;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  h1 {
+    font-size: $font-size-h1;
+    font-weight: 800;
+    margin-bottom: 24px;
+    color: $white;
+    line-height: 1.2;
+
+    @media (max-width: $tablet) {
+      font-size: 48px;
+    }
+
+    @media (max-width: $mobile) {
+      font-size: 36px;
+    }
+  }
+
+  p {
+    font-size: 20px;
+    color: $text-light;
+    margin-bottom: 40px;
+    line-height: 1.6;
+
+    @media (max-width: $mobile) {
+      font-size: 16px;
+    }
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .btn {
+      min-width: 180px;
+    }
+  }
+
+  .hero-img {
+    margin-top: 60px;
+    position: relative;
+    z-index: 2;
+
+    img {
+      width: 100%;
+      max-width: 1200px;
+      height: auto;
+      border-radius: $radius;
+      box-shadow: 0 20px 60px rgba(0, 255, 133, 0.2);
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: translateY(-10px);
+      }
+    }
+  }
+
+  @media (max-width: $mobile) {
+    padding: 80px 20px;
+    min-height: auto;
+
+    .hero-actions {
+      flex-direction: column;
+      width: 100%;
+
+      .btn {
+        width: 100%;
+      }
+    }
+
+    .hero-img {
+      margin-top: 40px;
+    }
+  }
+}

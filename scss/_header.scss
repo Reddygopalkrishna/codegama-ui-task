@@ -1,0 +1,135 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px $container-padding;
+  position: sticky;
+  top: 0;
+  background: rgba(2, 2, 2, 0.95);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
+  .logo {
+    img {
+      width: 130px;
+      height: auto;
+    }
+  }
+
+  .menu {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    list-style: none;
+
+    a {
+      color: $white;
+      font-weight: 500;
+      font-size: $font-size-body;
+      transition: color 0.3s ease;
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: $primary;
+        transition: width 0.3s ease;
+      }
+
+      &:hover {
+        color: $primary;
+
+        &::after {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .nav-actions {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+
+    .btn-login {
+      background: transparent;
+      color: $white;
+      border: none;
+      cursor: pointer;
+      font-weight: 500;
+      padding: 10px 20px;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: $primary;
+      }
+    }
+
+    .btn-signup {
+      @extend .btn;
+      @extend .btn-primary;
+      padding: 10px 24px;
+    }
+  }
+
+  .menu-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    color: $white;
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  @media (max-width: $tablet) {
+    padding: 20px 40px;
+
+    .menu {
+      gap: 24px;
+    }
+  }
+
+  @media (max-width: $mobile) {
+    padding: 20px;
+
+    .menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: $dark-bg;
+      flex-direction: column;
+      padding: 20px;
+      gap: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+      &.active {
+        display: flex;
+      }
+    }
+
+    .nav-actions {
+      gap: 10px;
+
+      .btn-login {
+        padding: 8px 16px;
+        font-size: 14px;
+      }
+
+      .btn-signup {
+        padding: 8px 16px;
+        font-size: 14px;
+      }
+    }
+
+    .menu-toggle {
+      display: block;
+    }
+  }
+}
